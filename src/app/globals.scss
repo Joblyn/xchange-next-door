@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background: #fff;
+    -webkit-font-smoothing: anitalised;
+    -moz-osx-font-smoothing: grayscale;
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+  }
+  * {
+    box-sizing: border-box;
+  }
+  a {
+    text-decoration: none;
+  }
+}
+
+@layer utilities {
+  .container-padding {
+    @apply p-2 md:px-3 lg:px-8 xl:px-12;
+  }
+}
