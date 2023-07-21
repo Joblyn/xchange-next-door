@@ -1,6 +1,8 @@
 import CryptoRate from '@/components/crypto-rate'
 import HeaderNav from '@/components/header-nav/header-nav'
+import { features } from '@/fixtures/features'
 import Image from 'next/image'
+import ArrowUpRight from '../../public/assets/icons/arrow-up-right.svg'
 
 export default function Home () {
   return (
@@ -35,8 +37,73 @@ export default function Home () {
             className='w-full h-auto'
           />
         </div>
-
         <CryptoRate />
+      </section>
+
+      <section className='container-padding bg-white py-16 md:py-24'>
+        {features.map((feature, id) => {
+          return (
+            <div
+              key={id}
+              className={`flex flex-col w-full ${
+                id % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
+              } py-5 px-5 md:px-0 gap-4 md:gap-0`}
+              aria-labelledby='feature'
+              aria-describedby={`feature: ${feature.title.toLowerCase()}`}
+            >
+              <div
+                className={`${
+                  id % 2 === 0 ? 'md:pr-4' : 'md:pl-4'
+                } w-full md:w-1/2 flex flex-col items-center justify-center md:justify-start md:items-start gap-4 text-center md:text-left`}
+              >
+                <h3
+                  className={`${
+                    id % 2 === 0 ? 'text-s-700' : 'text-p-400'
+                  } uppercase text-base `}
+                  aria-describedby='feature tag'
+                >
+                  {feature.tag}
+                </h3>
+                <h4
+                  className='text-black text-2xl md:text-3xl font-bold'
+                  aria-describedby='feature title'
+                >
+                  {feature.title}
+                </h4>
+                <p
+                  className='text-g-700 text-lg mb-2'
+                  aria-describedby='feature description'
+                >
+                  {feature.info}
+                </p>
+                <button
+                  className='py-2.5 px-5 text-sm rounded-md border border-p-300 bg-white text-p-400 flex text-center justify-center items-center'
+                  aria-describedby='feature learn more button'
+                >
+                  Learn more
+                  <Image
+                    src='assets/icons/arrow-up-right.svg'
+                    width={20}
+                    height={20}
+                    alt='up right'
+                  />
+                </button>
+              </div>
+              <div
+                className={`${
+                  id % 2 === 0 ? 'md:pl-4' : 'md:pr-4'
+                } w-full md:w-1/2 flex flex-col items-center justify-center`}
+              >
+                <Image
+                  src={feature.src}
+                  alt={feature.alt}
+                  width={400}
+                  height={400}
+                />
+              </div>
+            </div>
+          )
+        })}
       </section>
     </main>
   )
