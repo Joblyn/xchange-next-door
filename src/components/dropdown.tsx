@@ -20,15 +20,15 @@ const Dropdown: React.FC<DropdownProps> = ({ items, show, setDropdown }) => {
   return (
     <div
       ref={dropdownRef}
-      className={`w-20 bg-white rounded-md shadow-md text-p-600 text-sm absolute top-1/2 left-1/2 md:top-full md:left-0  ${
+      className={`w-28 bg-white rounded-md shadow-lg text-p-600 text-sm absolute top-1/2 left-1/2 md:top-full md:left-0 z-[10] ${
         show
           ? 'opacity-100 visible translate-y-0'
           : 'opactiy-0 invisible -translate-y-1'
-      } `}
+      } transition-all duration-150`}
     >
-      <ul className='divide-y divide-g-300'>
+      <ul className=''>
         {items.map((item, id) => (
-          <li className='p-2' key={id}>
+          <li className='p-3 cursor-pointer hover:bg-g-300' key={id}>
             {item}
           </li>
         ))}

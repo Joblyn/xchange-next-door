@@ -7,7 +7,6 @@ import SignInIcon from '../../../public/assets/icons/sign-in.svg'
 import { navlinks } from '@/fixtures/navLink'
 import styles from './styles.module.scss'
 import React, { Dispatch, SetStateAction, useRef, useState } from 'react'
-import useOnclickOutside from '@/hooks/useOnclickOutside'
 import Dropdown from '../dropdown'
 import Image from 'next/image'
 import { createGlobalStyle } from 'styled-components'
@@ -23,7 +22,7 @@ export type DropdownState = {
 }
 
 const LockBody = createGlobalStyle`
-  body {
+  body {header
     height: 100vh;
     width: 100vw;
     overflow: hidden;
@@ -59,6 +58,14 @@ export default function MobileSideBar () {
 
   const close = () => {
     setShowNav(false)
+  }
+
+  const onDropdownClick = (id: number) => {
+    if (dropdown.state && dropdown.id === id) {
+      setDropdown({ state: false, id: null })
+    } else {
+      setDropdown({ state: true, id })
+    }
   }
 
   return (
@@ -99,11 +106,23 @@ export default function MobileSideBar () {
               onClick={() => console.log('clicked')}
             >
               {navlink.dropdownItems ? (
-                <div className='flex items-center gap-[0.15rem] p-3 relative'>
-                  <span>{navlink.name}</span>
-                  <span>
-                    <DropdownIcon />
-                  </span>
+                <div className='relative'>
+                  <div
+                    className='flex items-center gap-[0.15rem] p-3'
+                    role='button'
+                    onClick={() => onDropdownClick(id)}
+                  >
+                    <span>{navlink.name}</span>
+                    <span>
+                      <DropdownIcon
+                        className={`${
+                          dropdown.state && dropdown.id === id
+                            ? 'rotate-180'
+                            : 'rotate-0'
+                        } transiton-all duration-150`}
+                      />
+                    </span>
+                  </div>
                   <Dropdown
                     show={dropdown.state && dropdown.id === id}
                     items={navlink.dropdownItems}

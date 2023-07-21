@@ -2,55 +2,66 @@
 
 import { testimonials } from '@/fixtures/testimonials'
 import Image from 'next/image'
-import { useState } from 'react'
+import React from 'react'
+import { Swiper as SwiperContainer, SwiperSlide } from 'swiper/react'
+import Swiper from 'swiper'
+import useMediaQuery from '@/hooks/useMediaQuery'
+import { Pagination } from 'swiper/modules'
+import 'swiper/css'
+import 'swiper/css/pagination'
+import './styles.scss'
 
 const Carousel: React.FC = () => {
-  const [active, setActive] = useState<number>(0)
+
+  const isMobile = useMediaQuery(576)
+  const isDesktop = useMediaQuery(1024)
 
   return (
-    <div className="">
-      <div
-        className={`py-10 px-20 lg:px-32 flex flex-row flex-nowrap overflow-x-auto w-full gap-5 snap-x snap-proximity snap-always scrollbar-none scrollbar-h-0`}
+    <div>
+      <SwiperContainer
+        slidesPerView={isMobile ? 1 : isDesktop ? 2 : 3}
+        spaceBetween={30}
+        pagination={{
+          clickable: true
+        }}
+        modules={[Pagination]}
+        // centeredSlides={true}
+        className='mySwiper'
       >
         {testimonials.map((testimonial, id) => {
           return (
-            <div
-              className={`bg-white rounded-lg p-6 w-[18rem] sm:w-80 h-[24rem] sm:h-80  snap-center shrink-0`}
-              key={id}
-              aria-describedby={`testimonial ${id}`}
-            >
-              <div className='flex flex-row gap-3 items-center mb-5'>
-                <Image
-                  src={testimonial.img}
-                  alt={`user ${id}`}
-                  width={40}
-                  height={40}
-                />
-                <span className='font-[600] text-base' aria-describedby='name'>
-                  {testimonial.name}
-                </span>
+            <SwiperSlide key={id}>
+              <div
+                className={`bg-white rounded-lg p-6 w-[18rem] sm:w-80 h-[24rem] sm:h-80 snap-center shrink-0 mx-auto`}
+                key={id}
+                aria-describedby={`testimonial-${id + 1}`}
+                id={`testimonial-${id + 1}`}
+              >
+                <div className='flex flex-row gap-3 items-center mb-5'>
+                  <Image
+                    src={testimonial.img}
+                    alt={`user ${id}`}
+                    width={40}
+                    height={40}
+                  />
+                  <span
+                    className='font-[600] text-base'
+                    aria-describedby='name'
+                  >
+                    {testimonial.name}
+                  </span>
+                </div>
+                <p
+                  aria-describedby='testimony'
+                  className='text-g-800 text-base'
+                >
+                  {testimonial.testimony}
+                </p>
               </div>
-              <p aria-describedby='testimony' className='text-g-800 text-base'>
-                {testimonial.testimony}
-              </p>
-            </div>
+            </SwiperSlide>
           )
         })}
-      </div>
-
-      <div className='carousel-indicators flex flex-row items-center justify-center gap-2 w-full pt-4'>
-        {testimonials.map((e, id) => {
-          return (
-            <div
-              key={id}
-              className={`w-3 h-3 rounded-full cursor-pointer transition-all ${
-                id === active ? 'bg-p-400' : 'bg-g-300'
-              }`}
-              onClick={() => setActive(id)}
-            ></div>
-          )
-        })}
-      </div>
+      </SwiperContainer>
     </div>
   )
 }

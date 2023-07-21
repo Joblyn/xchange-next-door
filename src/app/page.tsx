@@ -30,7 +30,7 @@ export default function Home () {
           </p>
         </div>
 
-        <div className='col-start-2 col-span-10 md:mt-10 lg:mt-20'>
+        <div className='col-start-2 col-span-10 md:mt-10 lg:mt-16'>
           <Image
             src='/assets/images/cards.svg'
             alt='gift cards'
@@ -127,6 +127,7 @@ export default function Home () {
                   alt={giftcard.alt}
                   width={200}
                   height={200}
+                  priority
                   className='w-full h-auto object-contain'
                 />
               </div>

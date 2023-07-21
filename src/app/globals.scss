@@ -24,7 +24,7 @@
 
 @layer utilities {
   .container-padding-x {
-    @apply px-4 sm:px-4 lg:px-24 xl:px-56;
+    @apply px-4 sm:px-4 lg:px-16 xl:px-24;
   }
   .container-padding-y {
     @apply py-16 md:py-24;
