@@ -20,7 +20,7 @@ export default function Home () {
           <h1 className='uppercase text-dark text-base mb-3 font-bold'>
             Exchange Next Door
           </h1>
-          <h2 className='text-2xl md:text-4xl lg:text-5xl font-bold text-p-600 leading-[1.25] tracking-[-1px] lg:tracking-[-1.92px] mb-5 w-[80%] md:w-full'>
+          <h2 className='text-3xl md:text-4xl lg:text-5xl font-bold text-p-600 leading-[1.25] tracking-[-1px] lg:tracking-[-1.92px] mb-5 w-[80%] md:w-full'>
             Effortlessly trade your <span className='text-s-600'>crypto</span>{' '}
             and <span className='text-s-600'>gift cards</span>
           </h2>
@@ -30,7 +30,7 @@ export default function Home () {
           </p>
         </div>
 
-        <div className='col-start-2 col-span-10 md:mt-10 lg:mt-16'>
+        <div className='col-start-2 col-span-10 mt-10 lg:mt-16'>
           <Image
             src='/assets/images/cards.svg'
             alt='gift cards'
@@ -118,7 +118,7 @@ export default function Home () {
           Popular gift cards that users/merchants can buy/sell
         </p>
 
-        <div className='grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mb-16'>
+        <div className='p-4 md:p-0 grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mb-16'>
           {giftCards.map((giftcard, id) => {
             return (
               <div aria-describedby={`${giftcard.name} giftcard`} key={id}>
