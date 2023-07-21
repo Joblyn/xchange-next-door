@@ -137,7 +137,7 @@ export default function MobileSideBar () {
             </li>
           ))}
         </ul>
-        <div className='mt-auto divide-y divide-g-300 py-4'>
+        <div className='mt-4 divide-y divide-g-300 py-4'>
           <div className='p-3'>
             <Link href='/sign-in' className='text-p-600'>
               Sign In
