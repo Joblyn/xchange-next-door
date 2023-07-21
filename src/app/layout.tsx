@@ -1,3 +1,4 @@
+import StyledComponentsRegistry from '@/lib/registry'
 import './globals.scss'
 import type { Metadata } from 'next'
 import { Poppins } from 'next/font/google'
@@ -6,7 +7,7 @@ const poppins = Poppins({
   display: 'swap',
   weight: ['300', '400', '500', '700'],
   style: ['normal'],
-  subsets: ["latin"]
+  subsets: ['latin']
 })
 
 export const metadata: Metadata = {
@@ -21,7 +22,9 @@ export default function RootLayout ({
 }) {
   return (
     <html lang='en'>
-      <body className={poppins.className}>{children}</body>
+      <body className={poppins.className}>
+        <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+      </body>
     </html>
   )
 }

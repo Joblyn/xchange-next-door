@@ -10,6 +10,7 @@ import React, { Dispatch, SetStateAction, useRef, useState } from 'react'
 import useOnclickOutside from '@/hooks/useOnclickOutside'
 import Dropdown from '../dropdown'
 import Image from 'next/image'
+import { createGlobalStyle } from 'styled-components'
 
 type HamburgerProps = {
   showNav: boolean
@@ -20,6 +21,14 @@ export type DropdownState = {
   state: boolean
   id: null | number
 }
+
+const LockBody = createGlobalStyle`
+  body {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+  }
+`
 
 const Hamburger: React.FC<HamburgerProps> = props => {
   const { showNav, setShowNav } = props
@@ -54,19 +63,20 @@ export default function MobileSideBar () {
 
   return (
     <div className='md:hidden'>
+      {showNav && <LockBody />}
       <div>
         <Hamburger showNav={showNav} setShowNav={setShowNav} />
       </div>
 
       <div
-        className={`bg-dark bg-opacity-10 w-screen h-screen absolute top-0 left-0 ${
+        className={`bg-dark bg-opacity-10 w-screen h-screen fixed top-0 left-0 z-[1] ${
           showNav ? 'visible' : 'invisible'
         } transition-all`}
         onClick={close}
       ></div>
 
       <div
-        className={`w-[14rem] bg-white h-screen shadow-lg absolute top-0 flex flex-col ${
+        className={`w-[14rem] bg-white min-h-screen overflow-y-auto shadow-lg fixed top-0 flex flex-col z-[5] ${
           showNav ? 'left-0' : '-left-[15rem]'
         } transition-all`}
       >
