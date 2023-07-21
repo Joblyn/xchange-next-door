@@ -149,7 +149,7 @@ export default function Home () {
         aria-describedby='testimonials'
         className='container-padding-y bg-p-50'
       >
-        <div className='container-padding text-center'>
+        <div className='container-padding-x text-center'>
           <h2 className='text-black section-header'>
             Trusted by over 50,000 users
           </h2>
