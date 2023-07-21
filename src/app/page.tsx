@@ -118,7 +118,7 @@ export default function Home () {
           Popular gift cards that users/merchants can buy/sell
         </p>
 
-        <div className='p-4 md:p-0 grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mb-16'>
+        <div className='p-6 md:p-0 grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mb-16'>
           {giftCards.map((giftcard, id) => {
             return (
               <div aria-describedby={`${giftcard.name} giftcard`} key={id}>
