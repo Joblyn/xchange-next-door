@@ -24,6 +24,6 @@
 
 @layer utilities {
   .container-padding {
-    @apply p-2 md:px-3 lg:px-8 xl:px-12;
+    @apply px-2 md:px-3 lg:px-8 xl:px-12;
   }
 }

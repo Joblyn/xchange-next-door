@@ -20,7 +20,7 @@ const Dropdown: React.FC<DropdownProps> = ({ items, show, setDropdown }) => {
   return (
     <div
       ref={dropdownRef}
-      className={`w-20 bg-white rounded-md shadow-md text-p-600 text-sm abssolute top-1/2 left-1/2 md:top-full md:left-0  ${
+      className={`w-20 bg-white rounded-md shadow-md text-p-600 text-sm absolute top-1/2 left-1/2 md:top-full md:left-0  ${
         show
           ? 'opacity-100 visible translate-y-0'
           : 'opactiy-0 invisible -translate-y-1'

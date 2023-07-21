@@ -9,6 +9,7 @@ import styles from './styles.module.scss'
 import React, { Dispatch, SetStateAction, useRef, useState } from 'react'
 import useOnclickOutside from '@/hooks/useOnclickOutside'
 import Dropdown from '../dropdown'
+import Image from 'next/image'
 
 type HamburgerProps = {
   showNav: boolean
@@ -58,17 +59,26 @@ export default function MobileSideBar () {
       </div>
 
       <div
-        className={`bg-dark bg-opacity-10 w-screen h-screen absolute z-[-5] top-0 left-0 ${
+        className={`bg-dark bg-opacity-10 w-screen h-screen absolute top-0 left-0 ${
           showNav ? 'visible' : 'invisible'
         } transition-all`}
         onClick={close}
       ></div>
 
       <div
-        className={`w-[14rem] bg-white h-screen shadow-lg absolute top-0 right-0 z-[-1] pt-16 flex flex-col ${
-          showNav ? 'right-0' : '-right-[15rem]'
+        className={`w-[14rem] bg-white h-screen shadow-lg absolute top-0 flex flex-col ${
+          showNav ? 'left-0' : '-left-[15rem]'
         } transition-all`}
       >
+        <Link href='/' className='p-3'>
+          <Image
+            src='/assets/images/logo.svg'
+            alt='Logo'
+            width={50}
+            height={24}
+            priority
+          />
+        </Link>
         <ul className='flex flex-col divide-y divide-g-300'>
           {navlinks.map((navlink, id) => (
             <li
@@ -98,7 +108,6 @@ export default function MobileSideBar () {
             </li>
           ))}
         </ul>
-
         <div className='mt-auto divide-y divide-g-300 py-4'>
           <div className='p-3'>
             <Link href='/sign-in' className='text-p-600'>
