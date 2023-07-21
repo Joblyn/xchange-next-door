@@ -23,7 +23,16 @@
 }
 
 @layer utilities {
-  .container-padding {
+  .container-padding-x {
     @apply px-4 sm:px-4 lg:px-24 xl:px-56;
+  }
+  .container-padding-y {
+    @apply py-16 md:py-24;
+  }
+  .section-header {
+    @apply text-2xl md:text-3xl font-bold mb-4;
+  }
+  .section-description {
+    @apply text-base lg:text-lg xl:max-w-[80%] mb-8 mx-auto;
   }
 }

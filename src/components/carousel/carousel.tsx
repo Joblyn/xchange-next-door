@@ -10,12 +10,12 @@ const Carousel: React.FC = () => {
   return (
     <div className="">
       <div
-        className={`py-10 px-20 md:px-20 flex flex-row flex-nowrap overflow-x-auto w-full gap-5 snap-x snap-proximity snap-always scrollbar-none scrollbar-h-0`}
+        className={`py-10 px-20 lg:px-32 flex flex-row flex-nowrap overflow-x-auto w-full gap-5 snap-x snap-proximity snap-always scrollbar-none scrollbar-h-0`}
       >
         {testimonials.map((testimonial, id) => {
           return (
             <div
-              className={`bg-white rounded-lg p-5 w-80 h-[20rem] snap-center  shrink-0`}
+              className={`bg-white rounded-lg p-6 w-[18rem] sm:w-80 h-[24rem] sm:h-80  snap-center shrink-0`}
               key={id}
               aria-describedby={`testimonial ${id}`}
             >

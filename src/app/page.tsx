@@ -2,7 +2,9 @@ import Carousel from '@/components/carousel/carousel'
 import CryptoRate from '@/components/crypto-rate'
 import HeaderNav from '@/components/header-nav/header-nav'
 import { features } from '@/fixtures/features'
+import { footerGroups } from '@/fixtures/footerGroups'
 import { giftCards } from '@/fixtures/giftcards'
+import { socials } from '@/fixtures/socials'
 import Image from 'next/image'
 
 export default function Home () {
@@ -41,7 +43,7 @@ export default function Home () {
         <CryptoRate />
       </section>
 
-      <section className='container-padding py-16 md:py-24'>
+      <section className='container-padding-x container-padding-y'>
         {features.map((feature, id) => {
           return (
             <div
@@ -108,13 +110,11 @@ export default function Home () {
       </section>
 
       <section
-        className='container-padding py-16 md:py-24 text-center'
+        className='container-padding-x container-padding-y text-center'
         aria-describedby='popular gift cards'
       >
-        <h2 className='text-black text-2xl md:text-3xl font-bold mb-4'>
-          Popular gift cards
-        </h2>
-        <p className='text-g-700 text-lg mb-8'>
+        <h2 className='text-black section-header'>Popular gift cards</h2>
+        <p className='text-g-700 section-description'>
           Popular gift cards that users/merchants can buy/sell
         </p>
 
@@ -136,7 +136,7 @@ export default function Home () {
 
         <div>
           <button
-            className='text-white text-base lg:text-lg bg-p-400 rounded-md py-4 px-6 lg:py-6 lg:px-12 hover:bg-white hover:text-p-400 transition-all'
+            className='text-white text-base md:text-lg bg-p-400 rounded-md py-4 px-6 lg:py-6 lg:px-12 hover:bg-opacity-90 transition-all'
             aria-describedby='explore more gift cards'
           >
             Explore more gift cards
@@ -144,19 +144,123 @@ export default function Home () {
         </div>
       </section>
 
-      <section aria-describedby='testimony' className='py-16 md:py-24 bg-p-50'>
-        <div className="container-padding">
-          <h2 className='text-black text-2xl md:text-3xl font-bold mb-4 text-center'>
+      <section
+        aria-describedby='testimonials'
+        className='container-padding-y bg-p-50'
+      >
+        <div className='container-padding text-center'>
+          <h2 className='text-black section-header'>
             Trusted by over 50,000 users
           </h2>
-          <p className='text-g-700 text-lg mb-8 text-center mx-auto'>
-            Our users have good things to say about using the web app.
-            <br /> Join us today!
+          <p className='text-g-700 section-description'>
+            Our users have good things to say about using the web app. Join us
+            today!
           </p>
         </div>
-
         <Carousel />
       </section>
+
+      <section
+        aria-describedby='get started'
+        className='container-padding-x container-padding-y bg-p-600 text-center text-white'
+      >
+        <h2 className='section-header'>Made just for you</h2>
+        <p className='section-description'>
+          Open an Exchange Next Door account from your phone or computer and
+          follow the simple on-screen steps to register for an account in
+          minutes.
+        </p>
+
+        <div className='pt-8'>
+          <button
+            className='text-dark text-base lg:text-lg bg-main-secondary rounded-md py-4 px-6 lg:py-6 lg:px-12 hover:bg-opacity-90 transition-all'
+            aria-describedby='get started button'
+          >
+            Get Started today
+          </button>
+        </div>
+      </section>
+
+      <footer
+        aria-describedby='subscribe to newsletters'
+        className='container-padding-x container-padding-y text-center'
+      >
+        <div aria-describedby='subscribe to newsletters' className='mb-16'>
+          <h2 className='section-header text-main-primary '>
+            Subscribe to our newsletters
+          </h2>
+          <p className='section-description text-g-700'>
+            Get the latest news about our product and services
+          </p>
+
+          <div className='flex w-full md:w-[4/5] max-w-2xl flex-col items-center justify-center md:flex-row mx-auto text-base lg:text-lg gap-4 md:gap-0 mt-8'>
+            <label className='sr-only'>Email</label>
+            <input
+              className='w-full h-16 text-g-700 p-3 bg-p-100 rounded-r-md md:rounded-r-none rounded-l-md'
+              type='email'
+              name='email'
+              placeholder='Enter your email'
+            />
+            <button className='w-36 h-16 text-white p-3 bg-p-600 rounded-l-md md:rounded-l-none rounded-r-md'>
+              Subscribe
+            </button>
+          </div>
+        </div>
+        <div className='h-[2px] bg-g-50 w-4/5 md:max-w-xl lg:max-w-2xl xl:max-w-3xl mx-auto'></div>
+        <div
+          className='container-padding-y grid grid-cols-12 gap-x-3 gap-y-6 text-left'
+          aria-describedby='links'
+        >
+          <div className='col-span-12 lg:col-span-4 pr-6'>
+            <Image
+              src='/assets/images/logo-with-name.svg'
+              alt='logo'
+              width={120}
+              height={24}
+              className='mb-6 w-36 h-auto'
+            />
+            <p className='text-dark mb-6'>
+              Effortlessly trade your gift cards for USDT with a verified
+              merchant. Sell your USDT and get paid in your local currency.
+            </p>
+            <div
+              className='flex flex-row gap-3'
+              aria-describedby='social links'
+            >
+              {socials.map((social, id) => (
+                <span className='hover:scale-[1.2] cusor-pointer' key={id}>
+                  <Image
+                    src={social.src}
+                    alt={social.name}
+                    width={34}
+                    height={34}
+                    className='w-10'
+                  />
+                </span>
+              ))}
+            </div>
+          </div>
+          {footerGroups.map((group, id) => (
+            <div className='col-span-12 md:col-span-6 lg:col-span-2' key={id}>
+              <h6 className='text-p-400 text-[1.2rem] font-[600] mb-5'>
+                {group.header}
+              </h6>
+              <div className='flex flex-col gap-3 lg:gap-4'>
+                {group.links.map((link, link_id) => (
+                  <div key={link_id} className='text-g-700'>
+                    {link}
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className='h-[2px] bg-g-50 w-4/5 md:max-w-xl lg:max-w-2xl xl:max-w-3xl mx-auto'></div>
+
+        <p className='text-g-800 pt-12'>
+          © Exchange Next Door 2023. All right reserved
+        </p>
+      </footer>
     </main>
   )
 }

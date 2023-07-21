@@ -14,7 +14,7 @@ export default function HeaderNav () {
   const isMobile = useMediaQuery(768)
 
   return (
-    <header className='container-padding py-2 bg-white relative'>
+    <header className='container-padding-x py-2 bg-white relative'>
       <nav className='flex flex-row items-center justify-between'>
         <Link href='/' className='w-[10%]'>
           <Image
