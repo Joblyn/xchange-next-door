@@ -4,7 +4,6 @@ import { testimonials } from '@/fixtures/testimonials'
 import Image from 'next/image'
 import React from 'react'
 import { Swiper as SwiperContainer, SwiperSlide } from 'swiper/react'
-import Swiper from 'swiper'
 import useMediaQuery from '@/hooks/useMediaQuery'
 import { Pagination } from 'swiper/modules'
 import 'swiper/css'
@@ -25,8 +24,6 @@ const Carousel: React.FC = () => {
           clickable: true
         }}
         modules={[Pagination]}
-        // centeredSlides={true}
-        className='mySwiper'
       >
         {testimonials.map((testimonial, id) => {
           return (

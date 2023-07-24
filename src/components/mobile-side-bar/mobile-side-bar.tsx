@@ -22,7 +22,7 @@ export type DropdownState = {
 }
 
 const LockBody = createGlobalStyle`
-  body {header
+  body {
     height: 100vh;
     width: 100vw;
     overflow: hidden;

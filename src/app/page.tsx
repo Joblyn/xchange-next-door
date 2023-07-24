@@ -182,10 +182,7 @@ export default function Home () {
         </div>
       </section>
 
-      <footer
-        aria-describedby='subscribe to newsletters'
-        className='container-padding-x container-padding-y text-center'
-      >
+      <footer className='container-padding-x container-padding-y text-center'>
         <div aria-describedby='subscribe to newsletters' className='mb-16'>
           <h2 className='section-header text-main-primary '>
             Subscribe to our newsletters
